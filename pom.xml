@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jay</groupId>
+	<artifactId>spring-cloud-demo</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<description>spring cloud demo</description>
+
+	<modules>
+		<module>eureka-server</module>
+		<module>eureka-service-provider</module>
+		<module>eureka-ribbon-consumer</module>
+	</modules>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+		<spring.boot.version>1.3.7.RELEASE</spring.boot.version>
+	</properties>
+
+	<!-- 通过scope=import来解决maven单继承问题。本例中 已经继承了 spring-boot-parent,就不能再继承spring-cloud-parent，通过import 
+		spring-cloud-dependencies 来获取其版本控制 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.SR5</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<!-- build插件版本控制 -->
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.version}</version>
+					 <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>

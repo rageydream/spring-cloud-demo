@@ -1,0 +1,5 @@
+server.port=1111
+spring.application.name=eureka-server
+eureka.instance.hostname=server1
+#定义其他注册中心地址，让其作为服务注册到其他服务中心
+eureka.client.serviceUrl.defaultZone=http://server2:1112/eureka

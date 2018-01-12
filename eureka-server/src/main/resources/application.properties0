@@ -1,0 +1,8 @@
+#默认服务注册中心也会将自己作为一个客户端注册它自己，需要配置关闭注册
+server.port=1111
+eureka.instance.hostname=localhost
+eureka.client.register-with-eureka=false
+#注册中心职务就是维护服务实例，无需去检索服务，故关掉
+eureka.client.fetch-registry=false
+#定义注册中心地址
+eureka.client.serviceUrl.defaultZone=http://${eureka.instance.hostname}:${server.port}/eureka/
