@@ -12,8 +12,8 @@
 		<module>eureka-service-provider</module>
 		<module>eureka-ribbon-consumer</module>
 	</modules>
-gitbu
 	<properties>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring.boot.version>1.3.7.RELEASE</spring.boot.version>
